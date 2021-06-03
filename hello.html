@@ -1,0 +1,35 @@
+<div class="d-flex flex-column" id="main-box">
+    <app-header></app-header>
+    <div class="d-flex p-5 flex-column" >
+        <div class="d-flex flex-column align-items-center">
+            <h5 class="pb-3">Important Information</h5>
+            <h3>{{message}}</h3>
+        
+        <div class="py-4 d-flex justify-content-center">
+            <mat-card-content>
+              <mat-grid-list *ngFor="let store of stores" cols = "3" rowHeight = "30px">
+                <mat-grid-tile colspan="2">
+                {{store.StoreName}}
+                </mat-grid-tile>
+    
+                <mat-grid-tile colspan="1">
+                <mat-form-field appearance="fill">
+                  <mat-select>
+                    <mat-option *ngFor="let display of displays" [value]="display.value">
+                      {{display.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+        
+                </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card-content>
+        </div>
+      </div>
+        <div class="pt-2 d-flex justify-content-between">
+            <app-cancel-button></app-cancel-button>
+            <app-send-button></app-send-button>
+        </div>
+    </div>
+
+</div>
